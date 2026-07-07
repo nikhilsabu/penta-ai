@@ -1,20 +1,27 @@
 # Push penta-ai to GitHub (nikhilsabu/penta-ai)
-# Run once in PowerShell from project root: .\scripts\push-to-github.ps1
+# Run in PowerShell: .\scripts\push-to-github.ps1
 
 $ErrorActionPreference = "Stop"
 Set-Location (Split-Path $PSScriptRoot -Parent)
 
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
+function Test-GhAuth {
+    gh auth status *> $null
+    return $LASTEXITCODE -eq 0
+}
+
 Write-Host "Checking GitHub CLI auth..." -ForegroundColor Cyan
-$auth = gh auth status 2>&1
-if ($LASTEXITCODE -ne 0) {
+if (-not (Test-GhAuth)) {
     Write-Host "Login required. Complete the browser/device flow when prompted." -ForegroundColor Yellow
     gh auth login --hostname github.com --git-protocol https --web
+    if (-not (Test-GhAuth)) {
+        throw "GitHub login was not completed."
+    }
 }
 
 Write-Host "Creating repo if needed..." -ForegroundColor Cyan
-gh repo view nikhilsabu/penta-ai 2>$null
+gh repo view nikhilsabu/penta-ai *> $null
 if ($LASTEXITCODE -ne 0) {
     gh repo create penta-ai --public --source=. --remote=origin --description "Pentame AI chatbot widget with OpenAI, RAG, and admin dashboard"
 } else {
