@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Pentame AI Chatbot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link href="admin.css" rel="stylesheet" />
+    <style>
+      body.admin-body {
+        display: grid;
+        place-items: center;
+        min-height: 100vh;
+        padding: 1.5rem;
+      }
+      .admin-notice {
+        width: min(560px, 100%);
+        background: var(--admin-surface);
+        border: 1px solid var(--admin-border);
+        border-radius: 14px;
+        box-shadow: var(--admin-shadow);
+        padding: 2rem;
+      }
+      .admin-notice h1 {
+        margin: 0 0 0.75rem;
+        font-size: 1.35rem;
+      }
+      .admin-notice p,
+      .admin-notice li {
+        color: var(--admin-muted);
+        line-height: 1.65;
+        font-size: 0.94rem;
+      }
+      .admin-notice ul {
+        padding-left: 1.2rem;
+        margin: 1rem 0;
+      }
+      .admin-notice code {
+        background: var(--admin-bg);
+        padding: 0.15rem 0.4rem;
+        border-radius: 6px;
+        font-size: 0.86rem;
+      }
+      .admin-notice-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1.25rem;
+      }
+      .warn {
+        margin-top: 1rem;
+        padding: 0.85rem 1rem;
+        border-radius: 10px;
+        background: #fff8e8;
+        border: 1px solid #fde6a8;
+        color: #7a5b00;
+        font-size: 0.88rem;
+      }
+    </style>
+  </head>
+  <body class="admin-body">
+    <div class="admin-notice">
+      <h1>Admin panel requires PHP hosting</h1>
+      <p>
+        GitHub Pages can only host static files. The Pentame admin dashboard uses
+        <strong>PHP + MySQL</strong> for login, conversations, leads, and settings —
+        so it cannot run on <code>github.io</code>.
+      </p>
+      <div class="warn">
+        You are viewing the static GitHub Pages copy. Use one of the options below for the real admin panel.
+      </div>
+      <ul>
+        <li><strong>Local (XAMPP):</strong> <code>http://localhost/penta-ai/chatbot/admin/</code></li>
+        <li><strong>Production:</strong> deploy the full <code>chatbot/</code> folder to PHP hosting, then open <code>/chatbot/admin/</code></li>
+        <li>Set <code>ADMIN_PASSWORD</code> in <code>chatbot/.env</code> before logging in</li>
+      </ul>
+      <div class="admin-notice-actions">
+        <a class="admin-btn admin-btn-primary" href="../../">Back to home</a>
+        <a class="admin-btn admin-btn-secondary" href="../index.html">Chatbot demo</a>
+        <a class="admin-btn admin-btn-secondary" href="https://github.com/nikhilsabu/penta-ai">GitHub repo</a>
+      </div>
+    </div>
+  </body>
+</html>

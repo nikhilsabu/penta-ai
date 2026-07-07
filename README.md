@@ -18,3 +18,5 @@ Live demo: [https://nikhilsabu.github.io/penta-ai/](https://nikhilsabu.github.io
 1. In repo **Settings → Pages**, set **Source** to **GitHub Actions**
 2. Push to `master` — the workflow deploys automatically
 3. GitHub Pages serves the static UI only; PHP/MySQL features need XAMPP or PHP hosting
+
+**Admin panel does not work on GitHub Pages.** Use `http://localhost/penta-ai/chatbot/admin/` with XAMPP, or deploy to PHP hosting.
