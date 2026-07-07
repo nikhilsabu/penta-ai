@@ -30,6 +30,12 @@ class ChatApi {
   }
 
   async post(action, payload = {}) {
+    if (window.PENTAME_CHATBOT_CONFIG?.isStaticDemo) {
+      throw new Error(
+        "Static demo only. Deploy PHP + MySQL on XAMPP or hosting for live AI chat.",
+      );
+    }
+
     const response = await fetch(this.apiEndpoint, {
       method: "POST",
       headers: this.buildHeaders(),
@@ -71,6 +77,12 @@ class ChatApi {
   }
 
   uploadDocument(file, category = "general") {
+    if (window.PENTAME_CHATBOT_CONFIG?.isStaticDemo) {
+      return Promise.reject(
+        new Error("File upload requires PHP backend hosting."),
+      );
+    }
+
     const formData = new FormData();
     formData.append("file", file);
     formData.append("category", category);

@@ -10,3 +10,11 @@ Floating AI chatbot widget for Pentame with OpenAI integration, RAG, lead captur
 4. Admin panel: `http://localhost/penta-ai/chatbot/admin/`
 
 See [chatbot/README.md](chatbot/README.md) for full setup and API details.
+
+## GitHub Pages
+
+Live demo: [https://nikhilsabu.github.io/penta-ai/](https://nikhilsabu.github.io/penta-ai/)
+
+1. In repo **Settings → Pages**, set **Source** to **GitHub Actions**
+2. Push to `master` — the workflow deploys automatically
+3. GitHub Pages serves the static UI only; PHP/MySQL features need XAMPP or PHP hosting
