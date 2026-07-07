@@ -1,0 +1,17 @@
+# Secrets
+.env
+chatbot/.env
+
+# Uploads (keep folder, ignore files)
+chatbot/uploads/*
+!chatbot/uploads/.gitkeep
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Temp
+*.tmp
